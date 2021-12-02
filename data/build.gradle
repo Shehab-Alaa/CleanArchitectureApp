@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -42,13 +43,21 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 
-    def koin_version= "3.1.4"
-    // Koin main features for Android
-    implementation "io.insert-koin:koin-android:$koin_version"
+    // Koin for Android
+    implementation "org.koin:koin-android:2.0.1"
+    // Koin Android Scope feature
+    implementation "org.koin:koin-android-scope:2.0.1"
+    // Koin Android ViewModel feature
+    implementation "org.koin:koin-android-viewmodel:2.0.1"
 
     // retrofit2
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.0'
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    // coroutines
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
 }

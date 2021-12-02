@@ -1,7 +1,7 @@
 package com.example.domain.model
 
 data class Movie(
-    var id: Int? = null,
+    var id: Int,
     var title: String? = null,
     var adult: Boolean? = null,
     var backdropPath: String?  = null,

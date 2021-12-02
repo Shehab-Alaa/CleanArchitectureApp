@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class MovieEntity(
     @SerializedName("id")
-    var id: Int? = null,
+    var id: Int,
     @SerializedName("title")
     var title: String? = null,
     @SerializedName("adult")

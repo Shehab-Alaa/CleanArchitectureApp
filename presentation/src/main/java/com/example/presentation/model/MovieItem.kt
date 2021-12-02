@@ -1,9 +1,13 @@
 package com.example.presentation.model
 
+import android.os.Parcelable
+import com.example.presentation.base.BaseParcelable
 import com.example.presentation.base.ModelItem
+import kotlinx.parcelize.Parcelize
 
-class MovieItem(
-    var id: Int? = null,
+@Parcelize
+data class MovieItem(
+    var id: Int,
     var title: String? = null,
     var adult: Boolean? = null,
     var backdropPath: String?  = null,
@@ -17,4 +21,6 @@ class MovieItem(
     var video: Boolean? = null,
     var voteAverage: Double? = null,
     var voteCount: Int? = null
-) : ModelItem()
+) : ModelItem() , BaseParcelable, Parcelable {
+    override fun unique(): Any = id
+}

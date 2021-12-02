@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -29,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -47,4 +52,15 @@ dependencies {
     // navigation
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    // timber
+    // https://github.com/JakeWharton/timber
+    implementation("com.jakewharton.timber:timber:4.7.1")
+
+    // Koin for Android
+    implementation "org.koin:koin-android:2.0.1"
+    // Koin Android Scope feature
+    implementation "org.koin:koin-android-scope:2.0.1"
+    // Koin Android ViewModel feature
+    implementation "org.koin:koin-android-viewmodel:2.0.1"
 }

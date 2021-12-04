@@ -1,8 +1,8 @@
 package com.example.data.remote.api
 
 import com.example.data.remote.response.MoviesListResponse
+import io.reactivex.Single
 import retrofit2.http.GET
-import kotlinx.coroutines.Deferred
 
 interface MovieApi {
 
@@ -11,5 +11,5 @@ interface MovieApi {
     }
 
     @GET("$keyMovie/popular")
-    fun getPopularMoviesAsync(): Deferred<MoviesListResponse>
+    fun getPopularMoviesAsync(): Single<MoviesListResponse>
 }

@@ -1,8 +1,11 @@
 package com.example.cleanarchitectureapp
 
 import android.app.Application
+import com.example.data.di.mapperModule
 import com.example.data.di.networkModule
 import com.example.data.di.repositoriesModule
+import com.example.presentation.di.presentationMapperModule
+import com.example.presentation.di.useCaseModule
 import com.example.presentation.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -17,7 +20,7 @@ class BaseApplication : Application() {
         startKoin {
             androidLogger()
             androidContext(this@BaseApplication)
-            modules(listOf(viewModelModule, repositoriesModule, networkModule))
+            modules(listOf(viewModelModule, repositoriesModule, networkModule, mapperModule, useCaseModule, presentationMapperModule))
         }
     }
 

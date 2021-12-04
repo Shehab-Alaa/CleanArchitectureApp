@@ -7,7 +7,7 @@ data class MoviesListResponse(
     @SerializedName("page")
     var page: Int? = null,
     @SerializedName("results")
-    var results: List<MovieEntity> = arrayListOf(),
+    var movies: List<MovieEntity> = arrayListOf(),
     @SerializedName("total_pages")
     var totalPages: Int? = null,
     @SerializedName("total_results" )

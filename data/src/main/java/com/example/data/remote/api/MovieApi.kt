@@ -1,7 +1,6 @@
 package com.example.data.remote.api
 
 import com.example.data.remote.response.MoviesListResponse
-import io.reactivex.Single
 import retrofit2.http.GET
 
 interface MovieApi {
@@ -11,5 +10,5 @@ interface MovieApi {
     }
 
     @GET("$keyMovie/popular")
-    fun getPopularMoviesAsync(): Single<MoviesListResponse>
+    suspend fun getPopularMoviesAsync(): MoviesListResponse
 }

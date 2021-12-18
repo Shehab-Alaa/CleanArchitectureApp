@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">CleanArchitectureApp</string>
-    <string name="movies">Movies</string>
+    <string name="movies">Popular Movies</string>
 </resources>

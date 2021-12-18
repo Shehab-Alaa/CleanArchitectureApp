@@ -1,13 +1,13 @@
 package com.example.presentation.ui.fragment.movie
 
 import androidx.lifecycle.viewModelScope
+import com.example.domain.base.Resource
+import com.example.domain.model.Movie
 import com.example.domain.usecase.movie.GetMoviesUseCase
 import com.example.presentation.base.BaseViewModel
 import com.example.presentation.mapper.MovieItemMapper
 import com.example.presentation.model.MovieItem
-import com.example.presentation.util.Resource
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class MoviesViewModel(
     private val getMoviesUseCase: GetMoviesUseCase,
@@ -26,15 +26,15 @@ class MoviesViewModel(
     private fun getPopularMoviesAsync(){
         viewModelScope.launch {
             postResult(Resource.loading())
-            getMoviesUseCase.createObservable()
-                .map { it.map { movie -> movieItemMapper.mapToPresentation(movie) } }
-                .subscribe({
-                    adapter.setList(it)
-                    postResult(Resource.success())
-                }, {
-                    Timber.e("Get movies error: $it")
-                    postResult(Resource.message(it.message))
-                })
+            when ( val result = getMoviesUseCase.executeAsync()){
+                 Resource.success<List<Movie>>() -> {
+                     val moviesItems = result.data?.map { movieItemMapper.mapToPresentation(it) }
+                     moviesItems?.let { adapter.setList(it) }
+                     postResult(Resource.success(moviesItems))
+                 } else -> {
+                     postResult(result)
+                 }
+            }
         }
     }
 }

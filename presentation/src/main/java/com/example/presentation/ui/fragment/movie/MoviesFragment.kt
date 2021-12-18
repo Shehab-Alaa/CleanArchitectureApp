@@ -2,11 +2,14 @@ package com.example.presentation.ui.fragment.movie
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import com.example.domain.base.Status
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentMoviesBinding
 import com.example.presentation.model.MovieItem
-import com.example.presentation.util.Status
+import com.example.presentation.util.gone
 import com.example.presentation.util.observe
+import com.example.presentation.util.visible
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MoviesFragment : BaseFragment<FragmentMoviesBinding,MoviesViewModel>() {
@@ -20,19 +23,26 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding,MoviesViewModel>() {
 
             observe(mutableLiveData) {
                 when (it) {
-                    is MovieItem -> {}
+                    is MovieItem -> {
+                        // TODO:: navigate to movie details fragment
+                    }
                 }
             }
             observe(resultLiveData) {
                 when (it?.status) {
                     Status.SUCCESS -> {
-
+                        binding.progressBar.gone()
                     }
-                    Status.MESSAGE -> {
-
+                    Status.ERROR -> {
+                        binding.progressBar.gone()
+                        Toast.makeText(context,it.message,Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
-
+                        binding.progressBar.visible()
+                    }
+                    Status.EMPTY -> {
+                        binding.progressBar.gone()
+                        binding.tvEmptyView.visible()
                     }
                 }
             }

@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Learning/CleanArchitectureApp/app/src/main/res/layout/activity_main.xml" value="0.1921875" />
-        <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/layout/fragment_movies.xml" value="0.1921875" />
-        <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/layout/item_movie_view.xml" value="0.1921875" />
+        <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/drawable/ic_broken_image.xml" value="0.1675925925925926" />
+        <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/layout/fragment_movies.xml" value="0.22" />
+        <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/layout/item_movie_view.xml" value="0.22" />
       </map>
     </option>
   </component>

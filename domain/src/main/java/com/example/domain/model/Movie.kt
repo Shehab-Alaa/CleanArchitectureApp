@@ -1,7 +1,5 @@
 package com.example.domain.model
 
-import com.example.domain.base.Model
-
 data class Movie(
     var id: Int,
     var title: String? = null,

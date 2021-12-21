@@ -2,7 +2,7 @@ package com.example.presentation.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.domain.base.Resource
+import com.example.domain.usecase.Resource
 
 open class BaseViewModel: ViewModel() {
 

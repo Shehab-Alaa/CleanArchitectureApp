@@ -1,8 +1,8 @@
 package com.example.presentation.ui
 
 import androidx.lifecycle.viewModelScope
-import com.example.domain.base.Resource
-import com.example.domain.base.Status
+import com.example.domain.usecase.Resource
+import com.example.domain.usecase.Status
 import com.example.domain.usecase.movie.GetMoviesUseCase
 import com.example.presentation.base.BaseViewModel
 import com.example.presentation.mapper.MovieItemMapper

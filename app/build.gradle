@@ -54,7 +54,6 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     // timber
-    // https://github.com/JakeWharton/timber
     implementation("com.jakewharton.timber:timber:4.7.1")
 
     // Koin for Android

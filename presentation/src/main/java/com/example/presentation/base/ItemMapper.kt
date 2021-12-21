@@ -1,6 +1,6 @@
 package com.example.presentation.base
 
-import com.example.domain.base.Model
+import com.example.domain.model.Model
 
 interface ItemMapper<M : Model, MI : ModelItem> {
     fun mapToPresentation(model: M): MI

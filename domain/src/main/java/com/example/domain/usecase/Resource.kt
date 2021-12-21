@@ -1,4 +1,4 @@
-package com.example.domain.base
+package com.example.domain.usecase
 
 
 data class Resource<out T>(val status: Status, val data: T? = null, val message: String? = null) {

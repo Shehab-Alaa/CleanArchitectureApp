@@ -3,7 +3,7 @@ package com.example.presentation.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.domain.base.Status
+import com.example.domain.usecase.Status
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentMoviesBinding
 import com.example.presentation.model.MovieItem

@@ -9,28 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import timber.log.Timber
 import java.lang.reflect.ParameterizedType
 
-fun ViewModel.launchDataLoad(
-    execution: suspend CoroutineScope.() -> Unit,
-    errorReturned: suspend CoroutineScope.(Throwable) -> Unit,
-    finallyBlock: (suspend CoroutineScope.() -> Unit)? = null
-) {
-
-    this.viewModelScope.launch {
-        try {
-            execution()
-        } catch (e: Throwable) {
-            errorReturned(e)
-        } finally {
-            finallyBlock?.invoke(this)
-        }
-    }
-}
 
 fun isOnline(context:Context): Boolean {
     val connectivityManager =
@@ -55,8 +40,6 @@ fun isOnline(context:Context): Boolean {
     }
     return false
 }
-
-
 
 fun <B : ViewDataBinding> LifecycleOwner.bindView(container: ViewGroup? = null): B {
     return if (this is Activity) {

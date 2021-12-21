@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppLightGreyTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/arial</item>
+        <item name="android:textColor">@color/light_grey</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_11ssp</item>
+    </style>
+
+    <style name="AppMidGreyTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/arial</item>
+        <item name="android:textColor">@color/mid_grey</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textSize">@dimen/_11ssp</item>
+    </style>
+
+</resources>

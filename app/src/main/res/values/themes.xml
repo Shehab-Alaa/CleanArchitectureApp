@@ -2,15 +2,17 @@
     <!-- Base application theme. -->
     <style name="Theme.CleanArchitectureApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/mid_grey</item>
+        <item name="colorPrimaryVariant">@color/mid_grey</item>
+        <item name="colorOnPrimary">@color/light_grey</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/mid_grey</item>
+        <item name="colorSecondaryVariant">@color/mid_grey</item>
+        <item name="colorOnSecondary">@color/light_grey</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/app_back</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

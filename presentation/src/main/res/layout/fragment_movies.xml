@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.presentation.ui.fragment.movie.MoviesViewModel" />
+            type="com.example.presentation.ui.MoviesViewModel" />
     </data>
 
     <RelativeLayout
@@ -25,7 +25,10 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:scrollbars="vertical"
+            android:scrollbarThumbVertical="@drawable/rv_scrollbar"
             app:adapter="@{viewModel.adapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -38,10 +41,11 @@
 
         <TextView
             android:id="@+id/tv_empty_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/AppMidGreyTextView"
             android:layout_centerInParent="true"
             android:text="@string/empty_view"
+            android:textSize="@dimen/_13ssp"
+            android:textStyle="bold"
             android:visibility="gone"/>
 
     </RelativeLayout>

@@ -1,8 +1,8 @@
-package com.example.presentation.ui.fragment.movie
+package com.example.presentation.ui
 
 import androidx.lifecycle.viewModelScope
 import com.example.domain.base.Resource
-import com.example.domain.model.Movie
+import com.example.domain.base.Status
 import com.example.domain.usecase.movie.GetMoviesUseCase
 import com.example.presentation.base.BaseViewModel
 import com.example.presentation.mapper.MovieItemMapper
@@ -26,14 +26,15 @@ class MoviesViewModel(
     private fun getPopularMoviesAsync(){
         viewModelScope.launch {
             postResult(Resource.loading())
-            when ( val result = getMoviesUseCase.executeAsync()){
-                 Resource.success<List<Movie>>() -> {
-                     val moviesItems = result.data?.map { movieItemMapper.mapToPresentation(it) }
-                     moviesItems?.let { adapter.setList(it) }
-                     postResult(Resource.success(moviesItems))
-                 } else -> {
-                     postResult(result)
-                 }
+            val result = getMoviesUseCase.executeAsync()
+            when (result.status){
+                Status.SUCCESS -> {
+                    val moviesItems = result.data?.map { movieItemMapper.mapToPresentation(it) }
+                    moviesItems?.let { adapter.setList(it) }
+                    postResult(Resource.success(moviesItems))
+                } else -> {
+                    postResult(result)
+                }
             }
         }
     }

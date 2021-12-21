@@ -1,4 +1,4 @@
-package com.example.presentation.ui.fragment.movie
+package com.example.presentation.ui
 
 import android.os.Bundle
 import android.view.View
@@ -12,7 +12,7 @@ import com.example.presentation.util.observe
 import com.example.presentation.util.visible
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class MoviesFragment : BaseFragment<FragmentMoviesBinding,MoviesViewModel>() {
+class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
 
     override val mViewModel: MoviesViewModel by viewModel()
 

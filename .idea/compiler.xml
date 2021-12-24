@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="CleanArchitectureApp.app" target="11" />
+      <module name="CleanArchitectureApp.buildSrc" target="11" />
       <module name="CleanArchitectureApp.data" target="11" />
       <module name="CleanArchitectureApp.presentation" target="11" />
     </bytecodeTargetLevel>

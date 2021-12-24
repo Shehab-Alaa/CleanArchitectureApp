@@ -1,4 +1,4 @@
-package com.example.cleanarchitectureapp
+package com.example.cleanarchitectureapp.app
 
 import android.app.Application
 import com.example.data.di.mapperModule

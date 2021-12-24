@@ -1,6 +1,6 @@
 plugins {
-    id 'java-library'
-    id 'kotlin'
+    id(GradlePlugins.javaLib)
+    id(GradlePlugins.kotlin)
 }
 
 java {

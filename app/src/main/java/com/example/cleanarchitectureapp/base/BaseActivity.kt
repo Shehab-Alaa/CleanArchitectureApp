@@ -1,4 +1,4 @@
-package com.example.presentation.base
+package com.example.cleanarchitectureapp.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

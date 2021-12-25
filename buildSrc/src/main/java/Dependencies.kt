@@ -7,8 +7,10 @@ object Versions {
     const val navigation = "2.3.5"
     const val material = "1.4.0"
     const val constraintLayout = "2.1.2"
-    const val jUnit = "4.12"
+    const val jUnit = "4.13.2"
     const val jUnitExtension = "1.1.3"
+    const val mockk = "1.10.2"
+    const val coreAndroidTest = "2.1.0"
     const val espresso = "3.4.0"
     const val lifecycle = "2.4.0"
     const val retrofit2 = "2.9.0"
@@ -33,6 +35,7 @@ object AndroidX{
     const val lifecycleLiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
     const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val jUnitExtension = "androidx.test.ext:junit:${Versions.jUnitExtension}"
+    const val coreAndroidTest = "androidx.arch.core:core-testing:${Versions.coreAndroidTest}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
 }
 
@@ -59,6 +62,7 @@ object Retrofit2{
 }
 
 object Modules{
+
     const val presentation = ":presentation"
     const val domain = ":domain"
     const val data = ":data"
@@ -68,6 +72,7 @@ object Coroutines{
 
     const val kotlinCoroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     const val coroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.coroutinesAdapter}"
+    const val coroutinesTest =  "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
 }
 
 object Koin{
@@ -86,6 +91,12 @@ object Glide{
 object JUnit{
 
     const val jUnit = "junit:junit:${Versions.jUnit}"
+}
+
+object Mockk{
+
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
 }
 
 object Libs{

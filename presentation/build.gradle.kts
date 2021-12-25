@@ -60,8 +60,12 @@ dependencies {
 
     // Test
     testImplementation(JUnit.jUnit)
-    androidTestImplementation(AndroidX.jUnitExtension)
+    testImplementation(AndroidX.coreAndroidTest)
+    testImplementation(Coroutines.coroutinesTest)
+    testImplementation(Mockk.mockk)
+    androidTestImplementation(Mockk.mockkAndroid)
     androidTestImplementation(AndroidX.espresso)
+    androidTestImplementation(AndroidX.jUnitExtension)
 
     // ViewModel
     implementation(AndroidX.lifecycleLiveData)

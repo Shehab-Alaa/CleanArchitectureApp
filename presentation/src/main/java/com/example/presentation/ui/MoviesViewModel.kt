@@ -1,5 +1,7 @@
 package com.example.presentation.ui
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.domain.usecase.Resource
 import com.example.domain.usecase.Status
@@ -13,25 +15,21 @@ class MoviesViewModel(
     private val getMoviesUseCase: GetMoviesUseCase,
     private val movieItemMapper: MovieItemMapper) : BaseViewModel(){
 
-    val adapter = MoviesAdapter(::onAdapterItemClick)
+    private val movieItems = MutableLiveData<List<MovieItem>>()
+    val movieItemsLiveData : LiveData<List<MovieItem>> get() = movieItems
 
     init {
         getPopularMoviesAsync()
     }
 
-    private fun onAdapterItemClick(item: MovieItem) {
-        setValue(item)
-    }
-
-    private fun getPopularMoviesAsync(){
+    fun getPopularMoviesAsync(){
         viewModelScope.launch {
             postResult(Resource.loading())
             val result = getMoviesUseCase.executeAsync()
             when (result.status){
                 Status.SUCCESS -> {
-                    val moviesItems = result.data?.map { movieItemMapper.mapToPresentation(it) }
-                    moviesItems?.let { adapter.setList(it) }
-                    postResult(Resource.success(moviesItems))
+                    movieItems.value = result.data?.map { movieItemMapper.mapToPresentation(it) }
+                    postResult(Resource.success(movieItems.value))
                 } else -> {
                     postResult(result)
                 }

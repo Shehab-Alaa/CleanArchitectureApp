@@ -9,7 +9,6 @@ import android.webkit.URLUtil
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.databinding.BindingAdapter
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -17,14 +16,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.presentation.R
 import timber.log.Timber
-
-@BindingAdapter("adapter")
-fun setRecyclerAdapter(recyclerView: RecyclerView, adapter: RecyclerView.Adapter<*>?) {
-    adapter?.let {
-        recyclerView.adapter = it
-        recyclerView.setHasFixedSize(true)
-    }
-}
 
 @BindingAdapter(value = ["loadImage", "imageLoader"], requireAll = false)
 fun bindLoadImage(imageView: ImageView, obj: Any?, progressBar: ProgressBar?) {

@@ -15,23 +15,20 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
 
     override val mViewModel: MoviesViewModel by viewModel()
+    private val moviesAdapter = MoviesAdapter(::onAdapterItemClick)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initRV()
+
         mViewModel.apply {
 
-            observe(mutableLiveData) {
-                when (it) {
-                    is MovieItem -> {
-                        // TODO:: navigate to movie details fragment
-                    }
-                }
-            }
             observe(resultLiveData) {
                 when (it?.status) {
                     Status.SUCCESS -> {
                         binding.progressBar.gone()
+                        movieItemsLiveData.value?.let { items -> moviesAdapter.setList(items) }
                     }
                     Status.ERROR -> {
                         binding.progressBar.gone()
@@ -48,6 +45,17 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
             }
         }
 
+    }
+
+    private fun initRV(){
+        binding.rvMovies.apply {
+            this.adapter = moviesAdapter
+            this.setHasFixedSize(true)
+        }
+    }
+
+    private fun onAdapterItemClick(item: MovieItem) {
+        // TODO:: navigate to movie details fragment
     }
 
 }

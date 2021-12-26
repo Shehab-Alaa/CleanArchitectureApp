@@ -52,6 +52,9 @@ dependencies {
 
     // Test
     testImplementation(JUnit.jUnit)
+    testImplementation(AndroidX.coreAndroidTest)
+    testImplementation(Mockk.mockk)
+    androidTestImplementation(Mockk.mockkAndroid)
     androidTestImplementation(AndroidX.jUnitExtension)
     androidTestImplementation(AndroidX.espresso)
 

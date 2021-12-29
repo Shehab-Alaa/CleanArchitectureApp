@@ -1,4 +1,4 @@
-Clean Architecture App
+Android Kotlin Clean Architecture App
 =======================================
 
 A Clean Architecture App that uses feature Modularization Architecture (app, presentation, domain, data, buildSrc) modules

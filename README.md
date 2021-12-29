@@ -7,6 +7,7 @@ Unit Testing using MockK/Mockito and UI Testing using Espresso.
 
 ![app](https://user-images.githubusercontent.com/39988066/147701669-3ba76b76-ef8d-4276-a527-16bb555e0f18.jpg)
 ![app_screenshot](https://user-images.githubusercontent.com/39988066/147701592-7afad608-35b5-4a89-a9d7-25ba529de4d3.jpg)
+![Webp net-resizeimage](https://user-images.githubusercontent.com/39988066/147701713-00938144-164b-4a7d-b5a0-44d231f54e30.jpg)
 
 Introduction
 -------------

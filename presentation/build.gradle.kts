@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Android.targetSdk)
+    compileSdk = Android.targetSdk
 
     defaultConfig {
-        minSdkVersion(Android.minSdk)
-        targetSdkVersion(Android.targetSdk)
+        minSdk = Android.minSdk
+        targetSdk = Android.targetSdk
 
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -64,7 +64,6 @@ dependencies {
     testImplementation(Coroutines.coroutinesTest)
     testImplementation(Mockk.mockk)
     androidTestImplementation(Mockk.mockkAndroid)
-    androidTestImplementation(AndroidX.espresso)
     androidTestImplementation(AndroidX.jUnitExtension)
 
     // ViewModel

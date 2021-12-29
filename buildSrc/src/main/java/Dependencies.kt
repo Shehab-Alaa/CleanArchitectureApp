@@ -7,11 +7,13 @@ object Versions {
     const val navigation = "2.3.5"
     const val material = "1.4.0"
     const val constraintLayout = "2.1.2"
-    const val jUnit = "4.13.2"
+    const val jUnit = "4.13.2" //
     const val jUnitExtension = "1.1.3"
     const val mockk = "1.10.2"
+    const val mockito = "2.22.0"
     const val coreAndroidTest = "2.1.0"
     const val espresso = "3.4.0"
+    const val androidXTest = "1.4.0"
     const val lifecycle = "2.4.0"
     const val retrofit2 = "2.9.0"
     const val okLogging = "4.8.0"
@@ -37,6 +39,8 @@ object AndroidX{
     const val jUnitExtension = "androidx.test.ext:junit:${Versions.jUnitExtension}"
     const val coreAndroidTest = "androidx.arch.core:core-testing:${Versions.coreAndroidTest}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
+    const val testRunner = "androidx.test:runner:${Versions.androidXTest}"
+    const val testRules = "androidx.test:rules:${Versions.androidXTest}"
 }
 
 object Android {
@@ -51,6 +55,7 @@ object Android {
 object Kotlin {
 
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val kotlinTest = "org.jetbrains.kotlin:kotlin-test-junit:${Versions.kotlin}"
 }
 
 object Retrofit2{
@@ -97,6 +102,11 @@ object Mockk{
 
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
+}
+
+object Mockito{
+
+    const val mockitoAndroid = "org.mockito:mockito-android:${Versions.mockito}"
 }
 
 object Libs{

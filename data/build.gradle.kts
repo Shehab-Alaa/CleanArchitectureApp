@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Android.targetSdk)
+    compileSdk = Android.targetSdk
 
     defaultConfig {
-        minSdkVersion(Android.minSdk)
-        targetSdkVersion(Android.targetSdk)
+        minSdk = Android.minSdk
+        targetSdk = Android.targetSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -56,7 +56,6 @@ dependencies {
     testImplementation(Mockk.mockk)
     androidTestImplementation(Mockk.mockkAndroid)
     androidTestImplementation(AndroidX.jUnitExtension)
-    androidTestImplementation(AndroidX.espresso)
 
     // Koin
     implementation(Koin.koinAndroid)

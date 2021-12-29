@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Android.targetSdk)
+    compileSdk = Android.targetSdk
 
     defaultConfig {
         applicationId = Android.applicationId
-        minSdkVersion(Android.minSdk)
-        targetSdkVersion(Android.targetSdk)
+        minSdk = Android.minSdk
+        targetSdk = Android.targetSdk
         versionCode = Android.versionCode
         versionName = Android.versionName
 
@@ -62,7 +62,10 @@ dependencies {
     // Test
     testImplementation(JUnit.jUnit)
     androidTestImplementation(AndroidX.jUnitExtension)
+    androidTestImplementation(Mockito.mockitoAndroid)
     androidTestImplementation(AndroidX.espresso)
+    androidTestImplementation(AndroidX.testRunner)
+    androidTestImplementation(AndroidX.testRules)
 
     // Navigation
     implementation(AndroidX.navigationFragment)

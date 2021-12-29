@@ -59,14 +59,6 @@ dependencies {
     implementation(project(Modules.presentation))
     implementation(project(Modules.data))
 
-    // Test
-    testImplementation(JUnit.jUnit)
-    androidTestImplementation(AndroidX.jUnitExtension)
-    androidTestImplementation(Mockito.mockitoAndroid)
-    androidTestImplementation(AndroidX.espresso)
-    androidTestImplementation(AndroidX.testRunner)
-    androidTestImplementation(AndroidX.testRules)
-
     // Navigation
     implementation(AndroidX.navigationFragment)
     implementation(AndroidX.navigationUi)

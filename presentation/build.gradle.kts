@@ -65,6 +65,9 @@ dependencies {
     testImplementation(Mockk.mockk)
     androidTestImplementation(Mockk.mockkAndroid)
     androidTestImplementation(AndroidX.jUnitExtension)
+    androidTestImplementation(AndroidX.espresso)
+    androidTestImplementation(AndroidX.testRunner)
+    androidTestImplementation(AndroidX.testRules)
 
     // ViewModel
     implementation(AndroidX.lifecycleLiveData)

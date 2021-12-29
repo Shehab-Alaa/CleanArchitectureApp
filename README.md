@@ -1,7 +1,7 @@
 Android Kotlin Clean Architecture App
 =======================================
 
-A Clean Architecture App that uses feature Modularization Architecture (app, presentation, domain, Data, buildSrc) modules
+A Clean Architecture App that uses feature Modularization Architecture (app, presentation, domain, data, buildSrc) modules
 to hit TMDB API using MVVM Architecture, Coroutines, Retrofit2, Live Data, Data Binding, Koin, SOLID Principles,
 Unit Testing using MockK/Mockito and UI Testing using Espresso.
 
@@ -36,7 +36,7 @@ Introduction
 - Repository interface
 
 #### Data Module
-- Implementation Repository
+- Repository Implementation
 - Executor API data
 - Mapper data model to domain model
 - Contains data service, third party data service  
@@ -48,7 +48,7 @@ Introduction
 - Handle data input from view via UseCase
 
 #### BuildSrc Module
-- Allows organizing gradle dependencies between all modules to build using KTS
+- Allows organizing gradle dependencies between all modules by using KTS
 
 ### Unit Test
 You can easily write Unit Test up to 70% code coverage lines of code (LOC), if you write focus on 

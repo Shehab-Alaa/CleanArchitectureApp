@@ -5,7 +5,8 @@ A Clean Architecture App that uses feature Modularization Architecture (app, pre
 to hit TMDB API using MVVM Architecture, Coroutines, Retrofit2, Live Data, Data Binding, Koin, SOLID Principles,
 Unit Testing using MockK/Mockito and UI Testing using Espresso.
 
-![app_screenshot](https://user-images.githubusercontent.com/39988066/147698906-c202b1bd-7530-4b6d-86e2-c3a8f3739325.jpeg){:height="50%" width="50%"}
+![app_screenshot](https://user-images.githubusercontent.com/39988066/147698906-c202b1bd-7530-4b6d-86e2-c3a8f3739325.jpeg)
+![app_screen](https://user-images.githubusercontent.com/39988066/147701540-f739a86c-f797-4431-b1c1-e84b788d0b24.jpg)
 
 Introduction
 -------------

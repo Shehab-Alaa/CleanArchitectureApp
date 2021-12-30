@@ -20,3 +20,5 @@ fun generateMoviesList() = listOf(
 )
 
 fun generateEmptyMoviesList() = listOf<Movie>()
+
+fun getExceptionMessage() = "null"

@@ -1,6 +1,6 @@
 package com.example.data.di
 
-import com.example.data.mapper.MovieEntityMapper
+import com.example.data.mapper.MovieMapper
 import com.example.data.remote.api.MovieApi
 import com.example.data.repository.MoviesRepository
 import com.example.domain.repository.IMoviesRepository
@@ -13,5 +13,5 @@ val repositoriesModule = module {
 
 fun provideMoviesRepository(
     movieApi: MovieApi,
-    movieEntityMapper: MovieEntityMapper
-): IMoviesRepository = MoviesRepository(movieApi,movieEntityMapper)
+    movieMapper: MovieMapper
+): IMoviesRepository = MoviesRepository(movieApi,movieMapper)

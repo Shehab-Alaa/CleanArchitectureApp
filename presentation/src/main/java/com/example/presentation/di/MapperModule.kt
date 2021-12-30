@@ -1,6 +1,6 @@
 package com.example.presentation.di
 
-import com.example.presentation.mapper.MovieItemMapper
+import com.example.presentation.mapper.MovieMapper
 import org.koin.dsl.module
 
 val presentationMapperModule = module {
@@ -8,4 +8,4 @@ val presentationMapperModule = module {
     single { provideMovieItemMapper() }
 }
 
-fun provideMovieItemMapper() : MovieItemMapper = MovieItemMapper()
+fun provideMovieItemMapper() : MovieMapper = MovieMapper()

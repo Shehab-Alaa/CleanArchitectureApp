@@ -4,7 +4,7 @@ import com.example.data.base.EntityMapper
 import com.example.data.model.MovieEntity
 import com.example.domain.model.Movie
 
-class MovieEntityMapper : EntityMapper<Movie,MovieEntity> {
+class MovieMapper : EntityMapper<Movie,MovieEntity> {
 
     override fun mapToDomain(entity: MovieEntity): Movie {
         return Movie(

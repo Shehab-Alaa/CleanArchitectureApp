@@ -4,7 +4,7 @@ import com.example.domain.model.Movie
 import com.example.domain.usecase.Resource
 import com.example.domain.usecase.movie.GetMoviesUseCase
 import com.example.presentation.base.BaseViewModelTest
-import com.example.presentation.mapper.MovieItemMapper
+import com.example.presentation.mapper.MovieMapper
 import com.example.presentation.model.generateErrorMessage
 import com.example.presentation.model.generateMoviesList
 import io.mockk.coEvery
@@ -22,18 +22,18 @@ class MoviesViewModelTest : BaseViewModelTest(){
     private var moviesUseCase: GetMoviesUseCase = mockk()
 
     private lateinit var moviesViewModel: MoviesViewModel
-    private val movieItemMapper = MovieItemMapper()
+    private val movieMapper = MovieMapper()
 
     override fun setup() {
         super.setup()
-        moviesViewModel = MoviesViewModel(moviesUseCase,movieItemMapper)
+        moviesViewModel = MoviesViewModel(moviesUseCase,movieMapper)
     }
 
     @Test
     fun `get Movies List`  (){
 
         val moviesList = generateMoviesList()
-        val expectedMovieItems = moviesList.map { movieItemMapper.mapToPresentation(it) }
+        val expectedMovieItems = moviesList.map { movieMapper.mapToPresentation(it) }
 
         coEvery { moviesUseCase.executeAsync() } returns Resource.success(moviesList)
 

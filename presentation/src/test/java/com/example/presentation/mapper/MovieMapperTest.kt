@@ -5,9 +5,9 @@ import com.example.presentation.model.generatePresentationModel
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class MovieItemMapperTest{
+class MovieMapperTest{
 
-    private val movieItemMapper = MovieItemMapper()
+    private val movieMapper = MovieMapper()
 
     @Test
     fun `map from domain to presentation` () {
@@ -15,7 +15,7 @@ class MovieItemMapperTest{
         val domainModel = generateDomainModel()
         val expectedPresentationModel = generatePresentationModel()
 
-        val presentationModel = movieItemMapper.mapToPresentation(domainModel)
+        val presentationModel = movieMapper.mapToPresentation(domainModel)
 
         assertEquals(expectedPresentationModel.id,presentationModel.id)
         assertEquals(expectedPresentationModel.title,presentationModel.title)
@@ -32,7 +32,7 @@ class MovieItemMapperTest{
         val presentationModel = generatePresentationModel()
         val expectedDomainModel = generateDomainModel()
 
-        val domainModel = movieItemMapper.mapToDomain(presentationModel)
+        val domainModel = movieMapper.mapToDomain(presentationModel)
 
         assertEquals(expectedDomainModel.id,domainModel.id)
         assertEquals(expectedDomainModel.title,domainModel.title)

@@ -1,6 +1,6 @@
 package com.example.data.repository
 
-import com.example.data.mapper.MovieEntityMapper
+import com.example.data.mapper.MovieMapper
 import com.example.data.model.generateMoviesList
 import com.example.data.remote.api.MovieApi
 import com.example.data.remote.response.MoviesListResponse
@@ -14,12 +14,12 @@ import org.junit.Test
 class MoviesRepositoryTest{
 
     private val movieApi : MovieApi = mockk()
-    private val movieEntityMapper = MovieEntityMapper()
+    private val movieMapper = MovieMapper()
     private lateinit var moviesRepository: MoviesRepository
 
     @Before
     fun setup() {
-        moviesRepository = MoviesRepository(movieApi, movieEntityMapper)
+        moviesRepository = MoviesRepository(movieApi, movieMapper)
     }
 
     @Test
@@ -27,7 +27,7 @@ class MoviesRepositoryTest{
 
         val moviesList = generateMoviesList()
         val moviesListResponse = MoviesListResponse(movies = moviesList)
-        val expectedMovieItems = moviesList.map { movieEntityMapper.mapToDomain(it) }
+        val expectedMovieItems = moviesList.map { movieMapper.mapToDomain(it) }
 
         coEvery { movieApi.getPopularMoviesAsync() } returns moviesListResponse
 

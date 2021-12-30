@@ -5,9 +5,9 @@ import com.example.data.model.generateEntityModel
 import org.junit.Assert.*
 import org.junit.Test
 
-class MovieEntityMapperTest{
+class MovieMapperTest{
 
-    private val movieEntityMapper = MovieEntityMapper()
+    private val movieEntityMapper = MovieMapper()
 
     @Test
     fun `map from domain to entity` () {

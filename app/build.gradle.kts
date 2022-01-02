@@ -70,4 +70,19 @@ dependencies {
     implementation(Koin.koinAndroid)
     implementation(Koin.androidScope)
     implementation(Koin.androidViewModel)
+
+    // Data Binding
+    kapt(Libs.dataBindingCompiler)
+
+    // Test
+    testImplementation(JUnit.jUnit)
+    testImplementation(AndroidX.coreAndroidTest)
+    testImplementation(Coroutines.coroutinesTest)
+    testImplementation(Mockk.mockk)
+    androidTestImplementation(Mockk.mockkAndroid)
+    androidTestImplementation(AndroidX.jUnitExtension)
+    androidTestImplementation(AndroidX.espresso)
+    androidTestImplementation(AndroidX.testRunner)
+    androidTestImplementation(AndroidX.testRules)
+    debugImplementation(AndroidX.fragmentTest)
 }

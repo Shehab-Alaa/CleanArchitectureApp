@@ -24,6 +24,8 @@ object Versions {
     const val intuit = "1.0.6"
     const val timber = "4.7.1"
     const val koin = "2.0.1"
+    const val fragmentVersion = "1.4.0"
+    const val dataBinding = "3.1.4"
 }
 
 object AndroidX{
@@ -41,6 +43,7 @@ object AndroidX{
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espresso}"
     const val testRunner = "androidx.test:runner:${Versions.androidXTest}"
     const val testRules = "androidx.test:rules:${Versions.androidXTest}"
+    const val fragmentTest = "androidx.fragment:fragment-testing:${Versions.fragmentVersion}"
 }
 
 object Android {
@@ -115,6 +118,7 @@ object Libs{
     const val intuitSdp = "com.intuit.sdp:sdp-android:${Versions.intuit}"
     const val intuitSsp = "com.intuit.ssp:ssp-android:${Versions.intuit}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    const val dataBindingCompiler = "com.android.databinding:compiler:${Versions.dataBinding}"
 }
 
 object GradlePlugins {

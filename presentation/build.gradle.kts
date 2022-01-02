@@ -58,6 +58,9 @@ dependencies {
     // Navigation
     implementation(AndroidX.navigationRunTime)
 
+    // Data Binding
+    kapt(Libs.dataBindingCompiler)
+
     // Test
     testImplementation(JUnit.jUnit)
     testImplementation(AndroidX.coreAndroidTest)
@@ -65,9 +68,6 @@ dependencies {
     testImplementation(Mockk.mockk)
     androidTestImplementation(Mockk.mockkAndroid)
     androidTestImplementation(AndroidX.jUnitExtension)
-    androidTestImplementation(AndroidX.espresso)
-    androidTestImplementation(AndroidX.testRunner)
-    androidTestImplementation(AndroidX.testRules)
 
     // ViewModel
     implementation(AndroidX.lifecycleLiveData)

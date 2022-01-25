@@ -16,7 +16,6 @@ import androidx.lifecycle.Observer
 import timber.log.Timber
 import java.lang.reflect.ParameterizedType
 
-
 fun isOnline(context:Context): Boolean {
     val connectivityManager =
         context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

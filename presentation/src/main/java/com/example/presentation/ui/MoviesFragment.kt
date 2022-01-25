@@ -3,6 +3,7 @@ package com.example.presentation.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.VisibleForTesting
 import com.example.domain.usecase.Status
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentMoviesBinding
@@ -15,7 +16,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
 
     override val mViewModel: MoviesViewModel by viewModel()
-    private val moviesAdapter = MoviesAdapter(::onAdapterItemClick)
+    private val moviesAdapter = MoviesAdapter(::onMovieItemClick)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,6 +29,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
                 when (it?.status) {
                     Status.SUCCESS -> {
                         binding.progressBar.gone()
+                        binding.rvMovies.visible()
                         movieItemsLiveData.value?.let { items -> moviesAdapter.setList(items) }
                     }
                     Status.ERROR -> {
@@ -54,7 +56,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
         }
     }
 
-    private fun onAdapterItemClick(item: MovieItem) {
+    private fun onMovieItemClick(item: MovieItem) {
         // TODO:: navigate to movie details fragment
     }
 

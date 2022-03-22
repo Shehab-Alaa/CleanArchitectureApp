@@ -29,7 +29,7 @@ class MoviesRepositoryTest{
         val moviesListResponse = MoviesListResponse(movies = moviesList)
         val expectedMovieItems = moviesList.map { movieMapper.mapToDomain(it) }
 
-        coEvery { movieApi.getPopularMoviesAsync() } returns moviesListResponse
+        coEvery { movieApi.getPopularMoviesAsync(1) } returns moviesListResponse
 
         runBlocking {
             val result = moviesRepository.getPopularMoviesAsync()

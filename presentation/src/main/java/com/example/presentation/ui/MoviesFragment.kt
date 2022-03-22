@@ -3,11 +3,12 @@ package com.example.presentation.ui
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.VisibleForTesting
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.usecase.Status
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentMoviesBinding
 import com.example.presentation.model.MovieItem
+import com.example.presentation.util.EndlessScrollListener
 import com.example.presentation.util.gone
 import com.example.presentation.util.observe
 import com.example.presentation.util.visible
@@ -30,7 +31,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
                     Status.SUCCESS -> {
                         binding.progressBar.gone()
                         binding.rvMovies.visible()
-                        movieItemsLiveData.value?.let { items -> moviesAdapter.setList(items) }
+                        movieItemsLiveData.value?.let { items -> moviesAdapter.addList(items) }
                     }
                     Status.ERROR -> {
                         binding.progressBar.gone()
@@ -50,9 +51,14 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
     }
 
     private fun initRV(){
-        binding.rvMovies.apply {
-            this.adapter = moviesAdapter
-            this.setHasFixedSize(true)
+        binding.rvMovies.let {
+            val linearLayoutManager = LinearLayoutManager(context)
+            it.layoutManager = linearLayoutManager
+            it.adapter = moviesAdapter
+            it.setHasFixedSize(true)
+            it.addOnScrollListener(EndlessScrollListener(linearLayoutManager){
+                mViewModel.getPopularMoviesAsync()
+            })
         }
     }
 

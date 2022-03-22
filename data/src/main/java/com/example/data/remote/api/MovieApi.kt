@@ -2,6 +2,7 @@ package com.example.data.remote.api
 
 import com.example.data.remote.response.MoviesListResponse
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface MovieApi {
 
@@ -10,5 +11,5 @@ interface MovieApi {
     }
 
     @GET("$keyMovie/popular")
-    suspend fun getPopularMoviesAsync(): MoviesListResponse
+    suspend fun getPopularMoviesAsync(@Query("page") page: Int): MoviesListResponse
 }

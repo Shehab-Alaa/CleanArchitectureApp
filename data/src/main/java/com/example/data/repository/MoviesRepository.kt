@@ -7,9 +7,18 @@ import com.example.domain.repository.IMoviesRepository
 
 class MoviesRepository(private val movieApi: MovieApi,private val movieMapper: MovieMapper) : IMoviesRepository {
 
+    private var page: Int = 0
+    private var totalPages: Int = 1
+
     override suspend fun getPopularMoviesAsync(): List<Movie> {
-        return movieApi.getPopularMoviesAsync().movies.map {
-            movieMapper.mapToDomain(it)
+        if (page < totalPages) {
+            page += 1
+            val response = movieApi.getPopularMoviesAsync(page)
+            response.totalPages?.let { totalPages = it }
+            return response.movies.map {
+                movieMapper.mapToDomain(it)
+            }
         }
+        return listOf()
     }
 }

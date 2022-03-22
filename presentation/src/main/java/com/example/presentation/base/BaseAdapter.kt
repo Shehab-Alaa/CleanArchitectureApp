@@ -53,7 +53,7 @@ abstract class BaseAdapter<T : BaseParcelable>(
         }
     }
 
-    fun updateList(newList: List<T>) {
+    fun addList(newList: List<T>) {
         mCurrentList.addAll(newList)
         submitList(mCurrentList.toMutableList())
     }

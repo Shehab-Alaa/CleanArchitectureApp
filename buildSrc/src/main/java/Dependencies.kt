@@ -59,6 +59,7 @@ object Kotlin {
 
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val kotlinTest = "org.jetbrains.kotlin:kotlin-test-junit:${Versions.kotlin}"
+    const val kotlinJvmTarget = "1.8"
 }
 
 object Retrofit2{
@@ -147,4 +148,15 @@ object BuildType {
     const val proguardRelease = "proguard-rules.pro"
     const val minifyDebug = false
     const val proguardDebug = "proguard-rules.pro"
+}
+
+object InstrumentationRunner {
+
+    const val instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    const val customTestRunner = "com.example.cleanarchitectureapp.CustomTestRunner"
+}
+
+object ConsumerRules {
+
+    const val pro = "consumer-rules.pro"
 }

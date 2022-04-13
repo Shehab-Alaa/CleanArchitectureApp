@@ -14,7 +14,7 @@ android {
         versionCode = Android.versionCode
         versionName = Android.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = InstrumentationRunner.customTestRunner
     }
 
     buildTypes {
@@ -36,7 +36,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Kotlin.kotlinJvmTarget
     }
 
     buildFeatures {
@@ -73,6 +73,9 @@ dependencies {
 
     // Data Binding
     kapt(Libs.dataBindingCompiler)
+
+    // Gson Parse
+    implementation(Retrofit2.gson)
 
     // Test
     testImplementation(JUnit.jUnit)

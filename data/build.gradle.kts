@@ -11,8 +11,8 @@ android {
         minSdk = Android.minSdk
         targetSdk = Android.targetSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
+        testInstrumentationRunner = InstrumentationRunner.instrumentationRunner
+        consumerProguardFiles(ConsumerRules.pro)
     }
 
     buildTypes {
@@ -34,7 +34,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Kotlin.kotlinJvmTarget
     }
 
 }

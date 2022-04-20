@@ -11,7 +11,9 @@ import java.io.IOException
 
 object TestUtil {
 
-    var resourceStatus: Resource<Any?> = Resource.success()
+    var resourceStatus: Resource<Any?> = Resource.loading()
+
+    fun getErrorMessage() = "Network error, please try again!"
 
     fun getDummyMoviesData(app: Context) : List<Movie>{
         val jsonFileString = getJsonDataFromAsset(app, "PopularMoviesResponse.json")

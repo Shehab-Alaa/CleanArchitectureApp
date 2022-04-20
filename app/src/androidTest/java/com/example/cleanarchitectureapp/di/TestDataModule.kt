@@ -7,9 +7,8 @@ import com.example.domain.usecase.movie.GetMoviesUseCase
 import org.koin.dsl.module
 
 val testDataModule = module {
-    single(override = true) {
-        provideTestMoviesUseCase(get(),get())
-    }
+
+    single { provideTestMoviesUseCase(get(),get()) }
 }
 
 fun provideTestMoviesUseCase(app: Application,

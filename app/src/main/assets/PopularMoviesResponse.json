@@ -60,45 +60,5 @@
     "video": false,
     "vote_average": 7.5,
     "vote_count": 1582
-  },
-  {
-    "adult": false,
-    "backdrop_path": "/x747ZvF0CcYYTTpPRCoUrxA2cYy.jpg",
-    "genre_ids": [
-      28,
-      12,
-      878
-    ],
-    "id": 406759,
-    "original_language": "en",
-    "original_title": "Moonfall",
-    "overview": "A mysterious force knocks the moon from its orbit around Earth and sends it hurtling on a collision course with life as we know it.",
-    "popularity": 4650.633,
-    "poster_path": "/odVv1sqVs0KxBXiA8bhIBlPgalx.jpg",
-    "release_date": "2022-02-03",
-    "title": "Moonfall",
-    "video": false,
-    "vote_average": 6.5,
-    "vote_count": 629
-  },
-  {
-    "adult": false,
-    "backdrop_path": "/5P8SmMzSNYikXpxil6BYzJ16611.jpg",
-    "genre_ids": [
-      80,
-      9648,
-      53
-    ],
-    "id": 414906,
-    "original_language": "en",
-    "original_title": "The Batman",
-    "overview": "In his second year of fighting crime, Batman uncovers corruption in Gotham City that connects to his own family while facing a serial killer known as the Riddler.",
-    "popularity": 2288.853,
-    "poster_path": "/74xTEgt7R36Fpooo50r9T25onhq.jpg",
-    "release_date": "2022-03-01",
-    "title": "The Batman",
-    "video": false,
-    "vote_average": 7.9,
-    "vote_count": 2806
   }
 ]

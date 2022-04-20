@@ -19,7 +19,7 @@ class TestMoviesUseCase(
             Status.SUCCESS -> Resource.success(getDummyMoviesData(app))
             Status.EMPTY -> Resource.empty()
             Status.ERROR -> Resource.error(app.getString(R.string.network_error))
-            Status.LOADING -> TODO()
+            Status.LOADING -> Resource.loading()
         }
     }
 }

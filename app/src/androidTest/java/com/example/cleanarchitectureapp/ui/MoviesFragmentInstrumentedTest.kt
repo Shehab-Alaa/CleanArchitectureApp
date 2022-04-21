@@ -1,8 +1,6 @@
 package com.example.cleanarchitectureapp.ui
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.IdlingRegistry
-import androidx.test.espresso.IdlingResource
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -10,14 +8,11 @@ import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
 import com.example.cleanarchitectureapp.R
-import com.example.cleanarchitectureapp.TestUtil.getErrorMessage
-import com.example.cleanarchitectureapp.TestUtil.resourceStatus
-import com.example.cleanarchitectureapp.ToastMatcher
-import com.example.cleanarchitectureapp.idling_resource.EspressoIdlingResource
+import com.example.cleanarchitectureapp.utils.TestUtil.getErrorMessage
+import com.example.cleanarchitectureapp.utils.TestUtil.resourceStatus
+import com.example.cleanarchitectureapp.utils.ToastMatcher
 import com.example.domain.usecase.Resource
 import org.hamcrest.Matchers.not
-import org.junit.After
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -26,16 +21,10 @@ import org.junit.runner.RunWith
 class MoviesFragmentInstrumentedTest {
 
     @get:Rule
-    var mActivityTestRule = ActivityTestRule(MainActivity::class.java, false, false)
-    private var mIdlingResource: IdlingResource? = null
-
-    @Before
-    fun setup() {
-        IdlingRegistry.getInstance().register(EspressoIdlingResource.countingIdlingResource)
-    }
+    val mActivityTestRule = ActivityTestRule(MainActivity::class.java, false, false)
 
     @Test
-    fun verifyMovies() {
+    fun testMoviesData() {
         resourceStatus = Resource.success()
 
         mActivityTestRule.launchActivity(null)
@@ -45,7 +34,7 @@ class MoviesFragmentInstrumentedTest {
     }
 
     @Test
-    fun verifyEmptyView(){
+    fun testEmptyView(){
         resourceStatus = Resource.empty()
 
         mActivityTestRule.launchActivity(null)
@@ -55,19 +44,12 @@ class MoviesFragmentInstrumentedTest {
     }
 
     @Test
-    fun verifyErrorMessage(){
+    fun testErrorMessage(){
         resourceStatus = Resource.error(getErrorMessage())
 
         mActivityTestRule.launchActivity(null)
 
         onView(withId(R.id.progress_bar)).check(matches(not(isDisplayed())))
         onView(ViewMatchers.withText(getErrorMessage())).inRoot(ToastMatcher()).check(matches(isDisplayed()))
-    }
-
-    @After
-    fun cleanUp() {
-        if (mIdlingResource != null) {
-            IdlingRegistry.getInstance().unregister()
-        }
     }
 }

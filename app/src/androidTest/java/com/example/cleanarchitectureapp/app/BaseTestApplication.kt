@@ -1,7 +1,7 @@
 package com.example.cleanarchitectureapp.app
 
 import android.app.Application
-import com.example.cleanarchitectureapp.di.testDataModule
+import com.example.cleanarchitectureapp.di.testUseCaseModule
 import com.example.data.di.mapperModule
 import com.example.data.di.networkModule
 import com.example.data.di.repositoriesModule
@@ -16,7 +16,7 @@ class BaseTestApplication : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@BaseTestApplication)
-            modules(listOf(viewModelModule, repositoriesModule, networkModule, mapperModule, testDataModule, presentationMapperModule))
+            modules(listOf(viewModelModule, repositoriesModule, networkModule, mapperModule, testUseCaseModule, presentationMapperModule))
         }
     }
 }

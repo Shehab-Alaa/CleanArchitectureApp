@@ -6,7 +6,7 @@ import com.example.domain.repository.IMoviesRepository
 import com.example.domain.usecase.movie.GetMoviesUseCase
 import org.koin.dsl.module
 
-val testDataModule = module {
+val testUseCaseModule = module {
 
     single { provideTestMoviesUseCase(get(),get()) }
 }

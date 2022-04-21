@@ -13,7 +13,7 @@ object Versions {
     const val mockito = "2.22.0"
     const val coreAndroidTest = "2.1.0"
     const val espresso = "3.4.0"
-    const val androidXTest = "1.4.0"
+    const val androidXTest = "1.2.0"
     const val lifecycle = "2.4.0"
     const val retrofit2 = "2.9.0"
     const val okLogging = "4.8.0"

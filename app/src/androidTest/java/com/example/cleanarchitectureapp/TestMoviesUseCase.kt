@@ -1,8 +1,8 @@
 package com.example.cleanarchitectureapp
 
 import android.content.Context
-import com.example.cleanarchitectureapp.TestUtil.getDummyMoviesData
-import com.example.cleanarchitectureapp.TestUtil.resourceStatus
+import com.example.cleanarchitectureapp.utils.TestUtil.getDummyMoviesData
+import com.example.cleanarchitectureapp.utils.TestUtil.resourceStatus
 import com.example.domain.model.Movie
 import com.example.domain.repository.IMoviesRepository
 import com.example.domain.usecase.Resource

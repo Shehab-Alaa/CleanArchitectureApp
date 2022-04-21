@@ -1,4 +1,4 @@
-package com.example.cleanarchitectureapp
+package com.example.cleanarchitectureapp.utils
 
 import android.os.IBinder
 

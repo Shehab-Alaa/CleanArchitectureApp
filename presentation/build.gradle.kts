@@ -3,6 +3,7 @@ plugins {
     id(GradlePlugins.kotlinAndroid)
     id(GradlePlugins.kotlinKapt)
     id(GradlePlugins.kotlinParcelize)
+    id(GradlePlugins.navigationSafeArgs)
 }
 
 android {
@@ -56,6 +57,8 @@ dependencies {
     implementation(project(Modules.domain))
 
     // Navigation
+    implementation(AndroidX.navigationFragment)
+    implementation(AndroidX.navigationUi)
     implementation(AndroidX.navigationRunTime)
 
     // Data Binding

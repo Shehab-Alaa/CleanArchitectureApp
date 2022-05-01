@@ -1,4 +1,4 @@
-package com.example.presentation.ui
+package com.example.presentation.ui.movie
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,10 +17,6 @@ class MoviesViewModel(
 
     private val movieItems = MutableLiveData<List<MovieItem>>()
     val movieItemsLiveData : LiveData<List<MovieItem>> get() = movieItems
-
-    init {
-        getPopularMoviesAsync()
-    }
 
     fun getPopularMoviesAsync(){
         viewModelScope.launch {

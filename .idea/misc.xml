@@ -7,6 +7,9 @@
         <entry key="..\:/Learning/CleanArchitectureApp/app/src/main/res/menu/menu.xml" value="0.25" />
         <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/drawable/ic_broken_image.xml" value="0.20833333333333334" />
         <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/layout/fragment_movies.xml" value="0.22" />
+        <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/layout/fragment_movies_search.xml" value="0.25" />
+        <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/layout/item_movie_search_view.xml" value="0.33" />
+        <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/layout/item_movie_view.xml" value="0.16574074074074074" />
         <entry key="..\:/Learning/CleanArchitectureApp/presentation/src/main/res/menu/menu.xml" value="0.1921875" />
       </map>
     </option>

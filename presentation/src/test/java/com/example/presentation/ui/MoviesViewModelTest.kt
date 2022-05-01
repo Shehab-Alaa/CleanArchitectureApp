@@ -7,6 +7,7 @@ import com.example.presentation.base.BaseViewModelTest
 import com.example.presentation.mapper.MovieMapper
 import com.example.presentation.model.generateErrorMessage
 import com.example.presentation.model.generateMoviesList
+import com.example.presentation.ui.movie.MoviesViewModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi

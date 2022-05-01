@@ -21,4 +21,11 @@ class MoviesRepository(private val movieApi: MovieApi,private val movieMapper: M
         }
         return listOf()
     }
+
+    override suspend fun getMoviesSearchAsync(query: String): List<Movie> {
+        val response = movieApi.getMoviesSearchAsync(query)
+        return response.movies.map {
+            movieMapper.mapToDomain(it)
+        }
+    }
 }

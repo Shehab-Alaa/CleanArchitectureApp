@@ -8,8 +8,12 @@ interface MovieApi {
 
     companion object{
         const val keyMovie = "movie"
+        const val keySearch = "search"
     }
 
     @GET("$keyMovie/popular")
     suspend fun getPopularMoviesAsync(@Query("page") page: Int): MoviesListResponse
+
+    @GET("$keySearch/$keyMovie")
+    suspend fun getMoviesSearchAsync(@Query("query") query: String): MoviesListResponse
 }

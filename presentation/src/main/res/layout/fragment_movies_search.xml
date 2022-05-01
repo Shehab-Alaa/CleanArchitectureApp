@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.presentation.ui.movie.MoviesViewModel" />
+            type="com.example.presentation.ui.search.MoviesSearchViewModel" />
     </data>
 
     <RelativeLayout
@@ -24,7 +24,7 @@
             <TextView
                 style="@style/AppLightGreyTextView"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:text="@string/movies"
+                android:text="@string/search"
                 android:textSize="@dimen/_14ssp"
                 android:textStyle="bold" />
 
@@ -38,7 +38,7 @@
             android:visibility="gone"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_movies"
+            android:id="@+id/rv_movies_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_12sdp"
@@ -48,7 +48,7 @@
             android:visibility="gone"
             android:layout_below="@id/toolbar"
             tools:itemCount="10"
-            tools:listitem="@layout/item_movie_view"
+            tools:listitem="@layout/item_movie_search_view"
             tools:visibility="visible"/>
 
         <TextView

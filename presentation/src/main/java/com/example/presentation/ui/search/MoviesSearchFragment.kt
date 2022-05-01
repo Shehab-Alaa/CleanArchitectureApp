@@ -1,44 +1,39 @@
-package com.example.presentation.ui
+package com.example.presentation.ui.search
 
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.usecase.Status
-import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
-import com.example.presentation.databinding.FragmentMoviesBinding
+import com.example.presentation.databinding.FragmentMoviesSearchBinding
 import com.example.presentation.model.MovieItem
-import com.example.presentation.util.EndlessScrollListener
 import com.example.presentation.util.gone
 import com.example.presentation.util.observe
 import com.example.presentation.util.visible
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
+class MoviesSearchFragment : BaseFragment<FragmentMoviesSearchBinding,MoviesSearchViewModel>() {
 
-    override val mViewModel: MoviesViewModel by viewModel()
-    private val moviesAdapter = MoviesAdapter(::onMovieItemClick)
+    override val mViewModel: MoviesSearchViewModel by viewModel()
+    private val moviesSearchAdapter = MoviesSearchAdapter(::onMovieSearchItemClick)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpToolbar()
-
         initRV()
 
         mViewModel.apply {
-
             observe(resultLiveData) {
                 when (it?.status) {
                     Status.SUCCESS -> {
                         binding.progressBar.gone()
-                        binding.rvMovies.visible()
-                        movieItemsLiveData.value?.let { items -> moviesAdapter.addList(items) }
+                        binding.rvMoviesSearch.visible()
+                        movieSearchItemsLiveData.value?.let { items -> moviesSearchAdapter.addList(items) }
                     }
                     Status.ERROR -> {
                         binding.progressBar.gone()
-                        Toast.makeText(context,it.message,Toast.LENGTH_LONG).show()
+                        Toast.makeText(context,it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
                         binding.progressBar.visible()
@@ -52,32 +47,16 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
         }
     }
 
-    private fun setUpToolbar(){
-        binding.toolbar.let {
-            it.inflateMenu(R.menu.main_menu)
-            it.setOnMenuItemClickListener { item ->
-                when(item.itemId) {
-                    R.id.action_search -> Toast.makeText(context,"Search",Toast.LENGTH_SHORT).show()
-                }
-                true
-            }
-        }
-    }
-
     private fun initRV(){
-        binding.rvMovies.let {
+        binding.rvMoviesSearch.let {
             val linearLayoutManager = LinearLayoutManager(context)
             it.layoutManager = linearLayoutManager
-            it.adapter = moviesAdapter
+            it.adapter = moviesSearchAdapter
             it.setHasFixedSize(true)
-            it.addOnScrollListener(EndlessScrollListener(linearLayoutManager){
-                mViewModel.getPopularMoviesAsync()
-            })
         }
     }
 
-    private fun onMovieItemClick(item: MovieItem) {
+    private fun onMovieSearchItemClick(item: MovieItem) {
         // TODO:: navigate to movie details fragment
     }
-
 }

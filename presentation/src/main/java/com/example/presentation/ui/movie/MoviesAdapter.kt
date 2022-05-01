@@ -1,4 +1,4 @@
-package com.example.presentation.ui
+package com.example.presentation.ui.movie
 
 import com.example.presentation.R
 import com.example.presentation.base.BaseAdapter

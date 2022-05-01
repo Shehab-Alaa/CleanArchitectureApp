@@ -5,13 +5,17 @@ import com.example.domain.repository.IMoviesRepository
 import com.example.domain.usecase.Resource
 import com.example.domain.usecase.UseCase
 
-open class GetMoviesUseCase(
+open class GetMoviesSearchUseCase(
     private val moviesRepository: IMoviesRepository
 ) : UseCase.ResourceUseCase<List<Movie>> {
 
+    companion object {
+        const val QUERY_PARAM = "query"
+    }
+
     override suspend fun executeAsync(param: Map<String, Any>?): Resource<List<Movie>> {
         return try {
-            val movies = moviesRepository.getPopularMoviesAsync()
+            val movies = moviesRepository.getMoviesSearchAsync(param?.get(QUERY_PARAM).toString())
             if (movies.isEmpty()) return Resource.empty()
             Resource.success(movies)
         } catch (e: Exception) {

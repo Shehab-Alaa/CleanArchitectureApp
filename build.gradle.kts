@@ -9,6 +9,7 @@ buildscript {
         classpath(kotlin(module = "gradle-plugin", version = Versions.kotlin))
         classpath (BuildPlugins.androidPlugin)
         classpath (BuildPlugins.kotlinPlugin)
+        classpath (BuildPlugins.navigationSageArgsPlugin)
     }
 }
 

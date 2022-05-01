@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.presentation.model.MovieItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_back">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_3sdp"
+            loadImage="@{item.posterPath}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@drawable/img_movie" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/AppLightGreyTextView"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:text="@{item.title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Movie Title" />
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/AppMidGreyTextView"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:text="@{item.releaseDate}"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:text="2020"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/AppMidGreyTextView"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:text="@{item.originalLanguage}"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2"
+            tools:text="en"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/AppLightGreyTextView"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:text="@{item.voteAverage.toString()}"
+            android:textSize="@dimen/_9ssp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:text="8.8"
+            android:drawablePadding="@dimen/_2sdp"
+            app:drawableLeftCompat="@drawable/ic_yellow_star"
+            tools:drawableStart="@drawable/ic_yellow_star"/>
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/AppLightGreyTextView"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:text="@{item.voteCount.toString()}"
+            android:textSize="@dimen/_9ssp"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/textView4"
+            tools:text="10"
+            android:drawablePadding="@dimen/_2sdp"
+            app:drawableLeftCompat="@drawable/ic_blue_star"
+            tools:drawableStart="@drawable/ic_blue_star"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:background="@color/mid_grey_transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

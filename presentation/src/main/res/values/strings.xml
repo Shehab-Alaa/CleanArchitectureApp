@@ -2,4 +2,5 @@
 <resources>
     <string name="movies">Popular Movies</string>
     <string name="empty_view">There is no data to show.</string>
+    <string name="search">search</string>
 </resources>

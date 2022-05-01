@@ -132,12 +132,14 @@ object GradlePlugins {
     const val kotlinKapt = "kotlin-kapt"
     const val javaLib = "java-library"
     const val androidLib = "com.android.library"
+    const val navigationSafeArgs = "androidx.navigation.safeargs"
 }
 
 object BuildPlugins {
 
     const val androidPlugin = "com.android.tools.build:gradle:${Versions.androidPlugin}"
     const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+    const val navigationSageArgsPlugin = "androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.navigation}"
 }
 
 object BuildType {

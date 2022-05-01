@@ -14,7 +14,7 @@ class TestMoviesUseCase(
     moviesRepository: IMoviesRepository
 ) : GetMoviesUseCase(moviesRepository) {
 
-    override suspend fun executeAsync(): Resource<List<Movie>> {
+    override suspend fun executeAsync(param: Map<String, Any>?): Resource<List<Movie>> {
         return when(resourceStatus.status){
             Status.SUCCESS -> Resource.success(getDummyMoviesData(app))
             Status.EMPTY -> Resource.empty()

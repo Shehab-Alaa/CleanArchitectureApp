@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.domain.usecase.Status
+import com.example.presentation.R
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentMoviesBinding
 import com.example.presentation.model.MovieItem
@@ -21,6 +22,8 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setUpToolbar()
 
         initRV()
 
@@ -47,7 +50,18 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding, MoviesViewModel>() {
                 }
             }
         }
+    }
 
+    private fun setUpToolbar(){
+        binding.toolbar.let {
+            it.inflateMenu(R.menu.main_menu)
+            it.setOnMenuItemClickListener { item ->
+                when(item.itemId) {
+                    R.id.action_search -> Toast.makeText(context,"Search",Toast.LENGTH_SHORT).show()
+                }
+                true
+            }
+        }
     }
 
     private fun initRV(){

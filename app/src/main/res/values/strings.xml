@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">CleanArchitectureApp</string>
-    <string name="movies">Popular Movies</string>
 
     <string name="network_error">Network error, please try again!</string>
 </resources>

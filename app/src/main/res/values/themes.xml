@@ -15,4 +15,10 @@
         <item name="android:statusBarColor" tools:targetApi="lollipop">@color/app_back</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.CleanArchitectureApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
 </resources>

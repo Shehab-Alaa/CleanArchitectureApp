@@ -8,6 +8,5 @@
     <fragment
         android:id="@+id/moviesFragment"
         android:name="com.example.presentation.ui.MoviesFragment"
-        android:label="@string/movies"
         tools:layout="@layout/fragment_movies"/>
 </navigation>

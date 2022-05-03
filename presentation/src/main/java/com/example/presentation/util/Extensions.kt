@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.annotation.IdRes
 import androidx.annotation.RequiresApi
 import androidx.databinding.ViewDataBinding
@@ -137,4 +138,22 @@ fun View.visible() {
 
 fun View.gone() {
     visibility = View.GONE
+}
+
+fun Fragment.showKeyboard(show: Boolean) {
+    view?.let { activity?.showKeyboard(it, show) }
+}
+
+fun Context.showKeyboard(view: View, show: Boolean) {
+    with(view) {
+        val inputMethodManager =
+            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        if (show)
+            inputMethodManager.toggleSoftInput(
+                InputMethodManager.SHOW_FORCED,
+                InputMethodManager.HIDE_IMPLICIT_ONLY
+            )
+        else
+            inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
+    }
 }

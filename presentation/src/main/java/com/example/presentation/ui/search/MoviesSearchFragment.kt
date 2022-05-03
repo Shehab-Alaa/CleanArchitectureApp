@@ -8,6 +8,7 @@ import com.example.domain.usecase.Status
 import com.example.presentation.base.BaseFragment
 import com.example.presentation.databinding.FragmentMoviesSearchBinding
 import com.example.presentation.model.MovieItem
+import com.example.presentation.util.Codes.NAVIGATE_BACK
 import com.example.presentation.util.gone
 import com.example.presentation.util.observe
 import com.example.presentation.util.visible
@@ -24,12 +25,20 @@ class MoviesSearchFragment : BaseFragment<FragmentMoviesSearchBinding,MoviesSear
         initRV()
 
         mViewModel.apply {
+            observe(mutableLiveData){
+                when(it){
+                    NAVIGATE_BACK -> requireActivity().onBackPressed()
+                }
+            }
             observe(resultLiveData) {
                 when (it?.status) {
                     Status.SUCCESS -> {
-                        binding.progressBar.gone()
-                        binding.rvMoviesSearch.visible()
-                        movieSearchItemsLiveData.value?.let { items -> moviesSearchAdapter.addList(items) }
+                        binding.let { bi ->
+                            bi.progressBar.gone()
+                            bi.tvEmptyView.gone()
+                            bi.rvMoviesSearch.visible()
+                        }
+                        movieSearchItemsLiveData.value?.let { items -> moviesSearchAdapter.setList(items) }
                     }
                     Status.ERROR -> {
                         binding.progressBar.gone()
@@ -39,12 +48,25 @@ class MoviesSearchFragment : BaseFragment<FragmentMoviesSearchBinding,MoviesSear
                         binding.progressBar.visible()
                     }
                     Status.EMPTY -> {
-                        binding.progressBar.gone()
-                        binding.tvEmptyView.visible()
+                        binding.let { bi ->
+                            bi.progressBar.gone()
+                            bi.rvMoviesSearch.gone()
+                            bi.tvEmptyView.visible()
+                        }
                     }
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        requestSearchFocus()
+    }
+
+    private fun requestSearchFocus(){
+        binding.searchEdt.requestFocus()
+        openKeyboard()
     }
 
     private fun initRV(){

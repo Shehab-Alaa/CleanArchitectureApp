@@ -16,10 +16,10 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_70sdp"
             android:layout_marginTop="@dimen/_3sdp"
-            android:layout_marginStart="@dimen/_3sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             loadImage="@{item.posterPath}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -31,7 +31,7 @@
             style="@style/AppLightGreyTextView"
             android:layout_width="0dp"
             android:layout_marginStart="@dimen/_6sdp"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_12sdp"
             android:text="@{item.title}"
             app:layout_constraintEnd_toEndOf="parent"

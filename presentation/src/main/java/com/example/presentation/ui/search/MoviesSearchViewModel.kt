@@ -1,5 +1,6 @@
 package com.example.presentation.ui.search
 
+import androidx.databinding.adapters.TextViewBindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -10,6 +11,7 @@ import com.example.domain.usecase.movie.GetMoviesSearchUseCase.Companion.QUERY_P
 import com.example.presentation.base.BaseViewModel
 import com.example.presentation.mapper.MovieMapper
 import com.example.presentation.model.MovieItem
+import com.example.presentation.util.Codes.NAVIGATE_BACK
 import kotlinx.coroutines.launch
 
 class MoviesSearchViewModel(
@@ -20,7 +22,7 @@ class MoviesSearchViewModel(
     private val movieSearchItems = MutableLiveData<List<MovieItem>>()
     val movieSearchItemsLiveData : LiveData<List<MovieItem>> get() = movieSearchItems
 
-    fun getMoviesSearchAsync(query: String){
+    private fun getMoviesSearchAsync(query: String){
         viewModelScope.launch {
             postResult(Resource.loading())
             val result = getMoviesSearchUseCase.executeAsync(mapOf(QUERY_PARAM to query))
@@ -33,5 +35,19 @@ class MoviesSearchViewModel(
                 }
             }
         }
+    }
+
+    fun onTextChange(): TextViewBindingAdapter.OnTextChanged {
+        return TextViewBindingAdapter.OnTextChanged { s, _, _, _ ->
+            if (s.isEmpty()){
+                postResult(Resource.empty())
+            }else {
+                getMoviesSearchAsync(s.toString())
+            }
+        }
+    }
+
+    fun onBackBtnPressed(){
+        setValue(NAVIGATE_BACK)
     }
 }

@@ -94,4 +94,7 @@ dependencies {
     implementation(Koin.koinAndroid)
     implementation(Koin.androidScope)
     implementation(Koin.androidViewModel)
+
+    // Clear EditText
+    implementation(Libs.clearEdtText)
 }

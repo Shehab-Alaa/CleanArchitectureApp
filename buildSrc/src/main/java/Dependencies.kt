@@ -10,7 +10,6 @@ object Versions {
     const val jUnit = "4.13.2" //
     const val jUnitExtension = "1.1.3"
     const val mockk = "1.10.2"
-    const val mockito = "2.22.0"
     const val coreAndroidTest = "2.1.0"
     const val espresso = "3.4.0"
     const val androidXTest = "1.2.0"
@@ -26,6 +25,7 @@ object Versions {
     const val koin = "2.0.1"
     const val fragmentVersion = "1.4.0"
     const val dataBinding = "3.1.4"
+    const val clearEdtText = "0.0.5"
 }
 
 object AndroidX{
@@ -108,11 +108,6 @@ object Mockk{
     const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
 }
 
-object Mockito{
-
-    const val mockitoAndroid = "org.mockito:mockito-android:${Versions.mockito}"
-}
-
 object Libs{
 
     const val material = "com.google.android.material:material:${Versions.material}"
@@ -120,6 +115,7 @@ object Libs{
     const val intuitSsp = "com.intuit.ssp:ssp-android:${Versions.intuit}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     const val dataBindingCompiler = "com.android.databinding:compiler:${Versions.dataBinding}"
+    const val clearEdtText = "com.github.Cielsk:clearable-edittext:${Versions.clearEdtText}"
 }
 
 object GradlePlugins {
@@ -161,4 +157,9 @@ object InstrumentationRunner {
 object ConsumerRules {
 
     const val pro = "consumer-rules.pro"
+}
+
+object Repositories{
+
+    const val jitpackIOUrl = "https://jitpack.io"
 }

@@ -19,16 +19,58 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/dark_grey"
-            android:minHeight="?attr/actionBarSize">
+            android:minHeight="?attr/actionBarSize"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp">
 
-            <TextView
-                style="@style/AppLightGreyTextView"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:text="@string/search"
-                android:textSize="@dimen/_14ssp"
-                android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/back_btn"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_gravity="start"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:background="@drawable/back_btn_transparent_bg"
+                android:onClick="@{()->viewModel.onBackBtnPressed()}"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_arrow_back" />
+
+            <com.cielyang.android.clearableedittext.ClearableEditText
+                android:id="@+id/search_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:background="@drawable/edt_search_bg"
+                android:hint="@string/search"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:onTextChanged="@{viewModel.onTextChange()}"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:textColor="@color/light_grey"
+                android:textColorHint="@color/light_grey"
+                app:clearIconDrawWhenFocused="false"
+                app:clearIconDrawable="@drawable/ic_cancel" />
 
         </androidx.appcompat.widget.Toolbar>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_movies_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:scrollbarThumbVertical="@drawable/rv_scrollbar"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            tools:itemCount="10"
+            tools:listitem="@layout/item_movie_search_view"
+            tools:visibility="visible" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
@@ -36,20 +78,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:visibility="gone"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_movies_search"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginBottom="@dimen/_6sdp"
-            android:scrollbars="vertical"
-            android:scrollbarThumbVertical="@drawable/rv_scrollbar"
-            android:visibility="gone"
-            android:layout_below="@id/toolbar"
-            tools:itemCount="10"
-            tools:listitem="@layout/item_movie_search_view"
-            tools:visibility="visible"/>
 
         <TextView
             android:id="@+id/tv_empty_view"
